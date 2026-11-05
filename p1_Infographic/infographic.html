@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infographic</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Jersey+10&display=swap');
+
+body {
+  margin: 0;
+  height: 3000px;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 4300px;
+  overflow: hidden;
+
+}
+
+.sceneContent {
+  position: relative;
+  width: 700px;    
+  height: 3000px;
+  margin: 0 auto;
+}
+
+#background {
+  position: absolute;
+  width: 700px;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#banner {
+  position: absolute;
+  width: 700px;
+  top: 120px;
+  left: 0;
+  z-index: 1;
+  transform-origin: center;
+}
+
+#guy {
+  position: absolute;
+  width: 350px;
+  top: 350px;
+  left: 190px;
+  z-index: 3;
+  transform: translateX(-50%);
+}
+
+#stats {
+  position: absolute;
+  width: 530px;
+  top: 1080px;
+  left: 95px;
+  z-index: 3;
+}
+
+#soapGif {
+  position: absolute;
+  height: 119px;
+  z-index: 5;
+  display: none;
+}
+
+.soap {
+  position: absolute;
+  width: 80px;
+  left: -200px;
+  z-index: 10;
+  cursor: pointer;
+  transition: transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.soap.animate {
+  transform: translateX(601px);
+  opacity: 0;
+}
+
+.bubble {
+  position: absolute;
+  height: 119px;
+  z-index: 2;
+}
+
+.plate {
+  position: absolute;
+  width: 290px;
+  right: -660px;
+  z-index: 5;
+  transition: transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+/* stats text  */
+.dadLine {
+  position: absolute;
+  right: -680px;
+  width: 260px;
+  font-family: "Comic Relief", sans-serif;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: bolder;
+  z-index: 7;
+  transition: transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/*Abilities part*/
+
+/* TITLE */
+#abilitiesTitle{
+  position: absolute;
+  top: 1600px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  font-family: "Comic Relief", sans-serif;
+  font-weight: bold;
+  z-index: 20;
+  font-style: italic;
+}
+
+/* STRING */
+#string {
+  position: absolute;
+  width: 700px;
+  top: 1700px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* LEFT SIDE */
+#broom {
+  position: absolute;
+  width: 90px;
+  top: 1720px;
+  left: calc(50% - 310px);
+  z-index: 10;
+  cursor:pointer;
+}
+
+#pistol {
+  position: absolute;
+  width: 90px;
+  top: 1900px;
+  left: calc(50% - 310px);
+  z-index: 10;
+  cursor:pointer;
+}
+
+/* RIGHT SIDE */
+#cupcake {
+  position: absolute;
+  width: 70px;
+  top: 1810px;
+  left: calc(50% + 150px);
+  z-index: 10;
+  cursor:pointer;
+}
+
+#bomb {
+  position: absolute;
+  width: 90px;
+  top: 1985px;
+  left: calc(50% + 160px);
+  z-index: 10;
+  cursor:pointer;
+}
+
+/* POPUP TEXT */
+.abilityText{
+  position:absolute;
+  width:400px;
+  font-family:"Comic Relief", sans-serif;
+  font-size:25px;
+  font-weight:bold;
+  z-index:30;
+  opacity:0;
+  transition:0.3s;
+  pointer-events:none;
+  text-align: center;
+}
+
+/* LEFT IMAGE → TEXT ON RIGHT */
+#broomText{
+  top:1750px;
+  left:120px;
+  width:500px;
+}
+
+#pistolText{
+  top:1920px;
+  left:150px;
+}
+
+/* RIGHT IMAGE → TEXT ON LEFT */
+#cupcakeText{
+  top:1820px;
+  left:120px;
+  text-align:center;
+}
+
+#bombText{
+  top:2005px;
+  left:60px;
+  text-align:right;
+}
+
+.showText{
+  opacity:1;
+}
+
+/*PLANETS SECTION */
+
+/* TITLE */
+#planetTitle{
+  position:absolute;
+  top:2200px;
+  left:50%;
+  transform:translateX(-50%);
+  width: 500px;
+  font-size:25px;
+  font-family:"Comic Relief", sans-serif;
+  font-weight:bold;
+  text-align: center;
+  z-index:20;
+}
+/* EACH PLANET BLOCK */
+
+.jupiter{
+  position:absolute;
+  top:2280px;
+  left:115px;
+  transform:translateX(-50%);
+  z-index:20;
+  width:250px;
+}
+
+.pluto{
+  position:absolute;
+  top:2345px;
+  left:275px;
+  transform:translateX(-50%);
+  z-index:20;
+  width:100px;
+}
+
+.mars{
+  position:absolute;
+  top:2315px;
+  left:425px;
+  transform:translateX(-50%);
+  z-index:20;
+  width:140px;
+}
+
+.earth{
+  position:absolute;
+  top:2300px;
+  left:595px;
+  transform:translateX(-50%);
+  z-index:20;
+  width:185px;
+}
+
+/* PLANET NAMES */
+.planetName{
+  position:absolute;
+  font-style: italic;
+  font-family:"Comic Relief", sans-serif;
+  font-size:22px;
+  font-weight:bold;
+  z-index:21;
+}
+
+/* RESPONSE IMAGE */
+#planetResponse{
+  position:absolute;
+  top:2550px;
+  left:50%;
+  transform:translateX(-50%);
+  width:500px;
+  z-index:15;
+}
+
+.jupiter,
+.pluto,
+.mars,
+.earth{
+  cursor:pointer;
+  transition:transform 0.15s ease;
+}
+
+.planetClick{
+  transform:translateX(-50%) scale(0.9);
+}
+
+#planetMessage{
+  position:absolute;
+  top:2565px;
+  left:50%;
+  transform:translateX(-50%);
+  width:500px;
+
+  text-align:center;
+
+  font-family:"Comic Relief", sans-serif;
+  font-size:25px;
+  font-weight:bold;
+  font-style:italic;
+
+  z-index:30;
+
+  opacity:0;
+  transition: opacity 0.5s ease;
+}
+
+/* FAMILY SECTION */
+
+/* cake banner */
+#cakeBanner{
+  position:absolute;
+
+  top:2800px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:500px;
+
+  z-index:20;
+}
+
+/* FAMILY text ON TOP of banner */
+#familyTitle{
+  position:absolute;
+  top:2786px;
+  left:50%;
+  transform:translateX(-50%);
+
+  font-family:"Comic Relief", sans-serif;
+  font-size:40px;
+  font-weight:bold;
+  font-style:italic;
+  z-index:25;
+}
+
+/* family image */
+#familyImage{
+  position:absolute;
+  top: 2885px;
+  left:48%;
+  transform:translateX(-50%);
+  width:600px;
+  z-index:15;
+}
+
+/* KIDS BAR GIF */
+#kidsBar{
+  position:absolute;
+  top:3150px;
+  left:200px;
+  transform:translateX(-50%);
+  width:400px;
+  z-index:20;
+  display:none;
+}
+
+#kidsBar{
+  cursor:pointer;
+}
+
+/* MOMS BAR GIF */
+#momBar{
+  position:absolute;
+  top:3150px;
+  left:500px;
+  transform:translateX(-50%);
+  width:400px;
+  z-index:20;
+  display:none;
+}
+
+#momBar{
+  cursor:pointer;
+}
+
+
+/* TAP TO REVEAL TEXT */
+.bar{
+  position:absolute;
+
+  top:3240px;
+  left:185px;
+
+  transform:translateX(-50%);
+
+  font-family:"Comic Relief", sans-serif;
+  font-size:28px;
+  font-weight:bold;
+  z-index:30;
+
+  cursor:pointer;
+}
+
+/* FINAL BAR IMAGE */
+#finalBarImage{
+  position:absolute;
+
+  top:3150px;
+  left:200px;
+
+  transform:translateX(-50%);
+
+  width:400px;
+
+  z-index:20;
+
+  display:none;
+}
+
+/* TAP TO REVEAL TEXT */
+.barM{
+  position:absolute;
+
+  top:3240px;
+  left:520px;
+
+  transform:translateX(-50%);
+  width: 250px;
+  font-family:"Comic Relief", sans-serif;
+  font-size:28px;
+  font-weight:bold;
+  z-index:30;
+
+  cursor:pointer;
+}
+
+/* FINAL BAR IMAGE MOM */
+#finalBarImageM{
+  position:absolute;
+
+  top:3150px;
+  left:500px;
+
+  transform:translateX(-50%);
+
+  width:400px;
+
+  z-index:20;
+
+  display:none;
+}
+
+#kids_text{
+  position:absolute;
+  top:2886px;
+  left:110px;
+  transform:translateX(-50%);
+
+  font-family:"Comic Relief", sans-serif;
+  font-size:20px;
+  font-weight:bold;
+  font-style:italic;
+  z-index:25;
+}
+
+#mom_text{
+  position:absolute;
+  top:2886px;
+  left:400px;
+  transform:translateX(-50%);
+
+  font-family:"Comic Relief", sans-serif;
+  font-size:20px;
+  font-weight:bold;
+  font-style:italic;
+  z-index:25;
+}
+
+/* FAMILY PARALLAX */
+#cakeBanner,
+#familyTitle,
+#familyImage,
+#kids_text,
+#mom_text,
+.bar,
+.barM,
+#finalBarImage,
+#finalBarImageM,
+#kidsBar,
+#momBar{
+  transition:
+    transform 0.15s linear,
+    opacity 0.3s ease;
+
+  transform-origin:center;
+}
+
+
+/* ABOUT ME SECTION */
+
+.aboutMe{
+  position:absolute;
+  top:3450px;
+  left:50%;
+  transform:translateX(-50%);
+  width:500px;
+  z-index:20;
+}
+
+.aboutMeText{
+  position:absolute;
+  top:3450px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:"Comic Relief", sans-serif;
+  font-size:40px;
+  font-weight:bold;
+  font-style:italic;
+  z-index:25;
+}
+
+.aboutMeCard{
+  position:absolute;
+  top:3550px;
+  left:190px;
+  transform:translateX(-50%);
+  width:380px;
+  z-index:15;
+}
+
+.gamesText{
+  position:absolute;
+  top:3870px;
+  left:80px;
+  width: 100px;
+  transform:translateX(-50%);
+  font-family:"Comic Relief", sans-serif;
+  font-size:17px;
+  font-weight:bold;
+  font-style:italic;
+  z-index:25;
+  cursor: pointer;
+
+}
+
+.games {
+  position:absolute;
+  top:3870px;
+  left:225px;
+  width:190px;
+
+  transform:translateX(-50%) scale(0);
+  transform-origin:left center;
+
+  z-index:25;
+
+  opacity:0;
+
+  transition:
+    transform 0.5s cubic-bezier(.2,.8,.2,1),
+    opacity 0.4s ease;
+
+  pointer-events:none;
+}
+
+.bagText{
+  position:absolute;
+  top:3970px;
+  left:100px;
+  width: 160px;
+  transform:translateX(-50%);
+  font-family:"Comic Relief", sans-serif;
+  font-size:20px;
+  font-weight:bold;
+  font-style:italic;
+  z-index:25;
+  cursor: pointer;
+
+}
+
+.bagItems {
+  position:absolute;
+  top:3965px;
+  left:175px;
+  width:350px;
+
+  transform:translateX(-50%) scale(0);
+  transform-origin:left center;
+
+  z-index:25;
+
+  opacity:0;
+
+  transition:
+    transform 0.5s cubic-bezier(.2,.8,.2,1),
+    opacity 0.4s ease;
+
+  pointer-events:none;
+}
+
+.showGrow{
+  transform:translateX(-50%) scale(1);
+  opacity:1;
+}
+
+.music {
+  position:absolute;
+  top:3770px;
+  left:360px;
+  width: 250px;
+  transform:translateX(-50%);
+  font-family:"Comic Relief", sans-serif;
+  font-weight:bold;
+  font-style:italic;
+  z-index:25;
+}
+
+.meImage {
+  position:absolute;
+  top:3600px;
+  left:530px;
+  width: 330px;
+  transform:translateX(-50%);
+  font-family:"Comic Relief", sans-serif;
+  font-weight:bold;
+  font-style:italic;
+  z-index:25;
+}
+
+.cardText{
+  position:absolute;
+  font-family:"Comic Relief", sans-serif;
+  font-size:13px;
+  font-weight:bold;
+  font-style:italic;
+  z-index:25;
+  transform: rotate(-15deg);
+  transform-origin: center;
+}
+
+/* ABOUT ME PARALLAX */
+.aboutMe,
+.aboutMeText,
+.aboutMeCard,
+.cardText,
+.gamesText,
+.bagText,
+.music,
+.meImage{
+  transition:
+    transform 0.15s linear,
+    opacity 0.3s ease;
+}
+
+/* ABILITIES PARALLAX START */
+#abilitiesTitle,
+#string,
+#broom,
+#cupcake,
+#pistol,
+#bomb,
+#broomText,
+#cupcakeText,
+#pistolText,
+#bombText{
+  transition:
+    transform 0.15s linear,
+    opacity 0.4s ease;
+
+  transform-origin:center;
+}
+
+/*SHAKE ANIMATION*/
+@keyframes shake {
+  0%   { transform: translateX(-50%) translateX(0) rotate(0deg); }
+  20%  { transform: translateX(-50%) translateX(-3px) rotate(-3deg); }
+  40%  { transform: translateX(-50%) translateX(3px) rotate(3deg); }
+  60%  { transform: translateX(-50%) translateX(-3px) rotate(-2deg); }
+  80%  { transform: translateX(-50%) translateX(3px) rotate(2deg); }
+  100% { transform: translateX(-50%) translateX(0) rotate(0deg); }
+}
+
+@keyframes growShrink {
+  0%   { transform: translateX(-50%) scale(1); }
+  25%  { transform: translateX(-50%) scale(1.2); }
+  50%  { transform: translateX(-50%) scale(0.9); }
+  75%  { transform: translateX(-50%) scale(1.1); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+.textShake {
+  animation: shake 0.4s ease;
+}
+
+.growShrink {
+  animation: growShrink 0.6s ease;
+}
+
+.shake {
+  animation: shake 0.5s ease;
+}
+
+.statsOverlay{
+  position: absolute;
+  left: 95px;
+  width: 530px;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.statsTitle{
+  position: absolute;
+  left: 260px;
+  width: 190px;
+  z-index: 11; 
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+  <div class="sceneContent">
+
+  <img id="background" src="images/fullback.png">
+
+  <img id="banner" src="images/banner.png">
+  <img id="guy" src="images/guy.png">
+  <img id="stats" src="images/stats_banner.png">
+
+  <img id="soapGif" src="animations/soap_animation.gif">
+
+  <!-- soaps -->
+  <img class="soap" src="images/soap.png" style="top:1000px;">
+  <img class="soap" src="images/soap.png" style="top:1090px;">
+  <img class="soap" src="images/soap.png" style="top:1170px;">
+  <img class="soap" src="images/soap.png" style="top:1260px;">
+  <img class="soap" src="images/soap.png" style="top:1350px;">
+  <img class="soap" src="images/soap.png" style="top:1430px;">
+
+  <img class="statsTitle" src="images/stats.png" style="top:917px;">
+  <img class="statsOverlay" src="images/strength.png" style="top:1020px;">
+  <img class="statsOverlay" src="images/dexterity.png" style="top:1110px;">
+  <img class="statsOverlay" src="images/intelligence.png" style="top:1183px;">
+  <img class="statsOverlay" src="images/charisma.png" style="top:1277px;">
+  <img class="statsOverlay" src="images/contitution.png" style="top:1370px;">
+  <img class="statsOverlay" src="images/wisdom.png" style="top:1450px;">
+
+  <!-- plates -->
+  <img id="plate1" class="plate" src="images/plate.png" style="top:350px;">
+  <img id="plate2" class="plate" src="images/plate.png" style="top:450px;">
+  <img id="plate3" class="plate" src="images/plate.png" style="top:550px;">
+  <img id="plate4" class="plate" src="images/plate.png" style="top:650px;">
+  <img hidden id="plate5" class="plate" src="images/plate.png" style="top:650px;">
+
+
+  <!-- stats text -->
+  <p id="line1" class="dadLine" style="top:270px;font-size: 30px;;">THE DAD</p>
+  <p id="line2" class="dadLine" style="top:375px;">NAME: HUSBAND</p>
+  <p id="line3" class="dadLine" style="top:475px;">OCCUPATION: DAD</p>
+  <p id="line4" class="dadLine" style="top:575px;">STRENGTH: PATIENCE</p>
+  <p id="line5" class="dadLine" style="top:675px;">WEAKNESS: FAMILY</p>
+
+  <!-- Abilities part -->
+  <p id="abilitiesTitle">DAD ABILITIES</p>
+  <img id="string" src="images/abilities_string.png">
+  <img id="broom" src="images/broom.png">
+  <img id="cupcake" src="images/cupcake.png">
+  <img id="pistol" src="images/pistol.png">
+  <img id="bomb" src="images/bomb.png">
+  
+  <!-- POPUP TEXTS -->
+  <div id="broomText" class="abilityText">
+    CLEANS EVERY MESS INSTANTLY
+  </div>
+
+  <div id="cupcakeText" class="abilityText">
+    BAKES LEGENDARY BIRTHDAY CUPCAKES
+  </div>
+
+  <div id="pistolText" class="abilityText">
+    CAN LOAD A GUN
+  </div>
+
+  <div id="bombText" class="abilityText">
+    CAN TAKE A BOMB
+  </div>
+
+  <!--PLANETS PART-->
+
+    <p id="planetTitle">WHAT PLANET DO YOU LIVE ON?</p>
+    <img class="jupiter" src="images/jupiter.png">
+    <img class="pluto" src="images/pluto.png">
+    <img class="mars" src="images/mars.png">
+    <img class="earth" src="images/earth.png">
+
+    <p id="planetMessage"></p>
+
+    <p class="planetName" style="top:2480px; left:60px;">JUPITER?</p>
+
+    <p class="planetName" style="top:2480px; left:240px;">PLUTO?</p>
+
+    <p class="planetName" style="top:2480px; left:390px;">MARS?</p>
+
+    <p class="planetName" style="top:2480px; left:560px;">EARTH?</p>
+
+    <img id="planetResponse" src="images/planet_response.png">
+
+
+<!--FAMILY PART-->
+
+<img id="cakeBanner" src="images/cake_banner.png">
+
+<p id="familyTitle">FAMILY</p>
+
+<img id="familyImage" src="images/family.png">
+<img id="kidsBar" src="images/animations/kids bar.gif">
+
+<p class="bar">TAP TO REVEAL</p>
+
+<p class="barM">TAP TO REVEAL</p>
+<img id="momBar" src="images/animations/mom bar.gif">
+
+<p id="kids_text">KIDS:</p>
+<p id="mom_text">MOM:</p>
+
+
+<!--ABOUT ME PART-->
+
+  <img class="aboutMe" src="images/aboutme_banner.png">
+  <p class="aboutMeText">ABOUT ME</p>
+
+  <img class="aboutMeCard" src="images/card.png">
+  <p id="gamesText" class="gamesText">FAVOURITE GAMES?</p>
+  <img class="games" src="images/games.png">
+
+  <p id="bagText" class="bagText">WHAT'S IN MY BAG?</p>
+  <img class="bagItems" src="images/what's_in_my_bag.png">
+
+  <img class="music" src="images/music.png">
+  <img class="meImage" src="images/me.png">
+  
+  <p class="cardText" style="top:3625px; left:220px;">ID CARD</p>
+  <p class="cardText" style="top:3660px; left:165px;">ISSUED TO: NONTOKOZO</p>
+  <p class="cardText" style="top:3685px; left:210px;">DOB: 06/ 08/06</p>
+  <p class="cardText" style="top:3705px; left:210px;">GENDER: FEMALE</p>
+  <p class="cardText" style="top:3730px; left:185px;">BASED IN: SOUTH AFRICA</p>
+
+
+    </div>
+</div>
+
+<script>
+
+const soaps = document.querySelectorAll(".soap");
+const gif = document.getElementById("soapGif");
+
+const banner = document.getElementById("banner");
+const guy = document.getElementById("guy");
+const stats = document.getElementById("stats");
+
+// stats text
+const lines = [
+  document.getElementById("line1"),
+  document.getElementById("line2"),
+  document.getElementById("line3"),
+  document.getElementById("line4"),
+  document.getElementById("line5"),
+
+  
+];
+
+const plates = [
+  document.getElementById("plate1"),
+  document.getElementById("plate2"),
+  document.getElementById("plate3"),
+  document.getElementById("plate4"),
+  document.getElementById("plate5")
+];
+
+// ABOUT ME INTERACTIONS
+
+const gamesText = document.getElementById("gamesText");
+const gamesImage = document.querySelector(".games");
+
+const bagText = document.getElementById("bagText");
+const bagImage = document.querySelector(".bagItems");
+
+// games click
+gamesText.addEventListener("click", () => {
+
+  gamesImage.classList.toggle("showGrow");
+
+});
+
+// bag click
+bagText.addEventListener("click", () => {
+
+  bagImage.classList.toggle("showGrow");
+
+});
+
+// PLANET INTERACTION
+
+const jupiter = document.querySelector(".jupiter");
+const pluto = document.querySelector(".pluto");
+const mars = document.querySelector(".mars");
+const earth = document.querySelector(".earth");
+
+const planetMessage = document.getElementById("planetMessage");
+
+function showPlanetMessage(planet, message, correct){
+
+  // show text
+  planetMessage.innerText = message;
+  planetMessage.style.opacity = "1";
+
+  // remove old animations
+  planetMessage.classList.remove("textShake");
+  planetMessage.classList.remove("growShrink");
+
+  // force reflow
+  void planetMessage.offsetWidth;
+
+  // WRONG planets
+  if(!correct){
+
+    planetMessage.classList.add("textShake");
+
+  } else {
+
+    // EARTH animation
+    planetMessage.classList.add("growShrink");
+
+  }
+
+  // planet press animation
+  planet.classList.add("planetClick");
+
+  setTimeout(() => {
+    planet.classList.remove("planetClick");
+  }, 150);
+
+  // hide text
+  setTimeout(() => {
+    planetMessage.style.opacity = "0";
+  }, 1200);
+}
+
+jupiter.addEventListener("click", () => {
+  showPlanetMessage(jupiter, "ERRRRR!! WRONG!!", false);
+});
+
+pluto.addEventListener("click", () => {
+  showPlanetMessage(pluto, "UMMMM U OK?", false);
+});
+
+mars.addEventListener("click", () => {
+  showPlanetMessage(mars, "NOOOOOO!!!!", false);
+});
+
+earth.addEventListener("click", () => {
+  showPlanetMessage(earth, "DING DING DING YOU GOT IT!", true);
+});
+
+// BAR ANIMATION
+
+// KIDS
+const kidsBar = document.getElementById("kidsBar");
+const revealText = document.querySelector(".bar");
+
+const finalBarImage = document.createElement("img");
+
+finalBarImage.src = "images/kids_bar_image.png";
+finalBarImage.id = "finalBarImage";
+
+document.querySelector(".sceneContent").appendChild(finalBarImage);
+
+
+// MOM
+const momBar = document.getElementById("momBar");
+const revealTextM = document.querySelector(".barM");
+
+const finalBarImageM = document.createElement("img");
+
+finalBarImageM.src = "images/mom_bar_image.png";
+finalBarImageM.id = "finalBarImageM";
+
+document.querySelector(".sceneContent").appendChild(finalBarImageM);
+
+
+// KIDS CLICK
+revealText.addEventListener("click", () => {
+
+  revealText.style.display = "none";
+
+  kidsBar.src = "animations/kids bar.gif?" + new Date().getTime();
+
+  kidsBar.style.display = "block";
+
+  finalBarImage.style.display = "none";
+
+  setTimeout(() => {
+
+    kidsBar.style.display = "none";
+
+    finalBarImage.style.display = "block";
+
+  }, 1000);
+
+});
+
+
+// MOM CLICK
+revealTextM.addEventListener("click", () => {
+  revealTextM.style.display = "none";
+
+  momBar.src = "animations/mom bar.gif?" + new Date().getTime();
+
+  momBar.style.display = "block";
+
+  finalBarImageM.style.display = "none";
+
+  setTimeout(() => {
+
+    momBar.style.display = "none";
+    finalBarImageM.style.display = "block";
+
+  }, 1250);
+
+});
+
+let statsIndex = 0;
+    const statsOverlays = document.querySelectorAll(".statsOverlay");
+
+// soap animation
+soaps.forEach((soap) => {
+  soap.addEventListener("click", () => {
+
+    let topPos = (parseInt(soap.style.top) - 30) + "px";
+    let leftPos = soap.style.left;
+
+    gif.style.top = topPos;
+    gif.style.left = leftPos;
+    gif.style.display = "block";
+    gif.src = "animations/soap_animation.gif?" + new Date().getTime();
+
+    soap.classList.add("animate");
+
+    setTimeout(() => {
+
+      gif.style.display = "none";
+
+      const bubble = document.createElement("img");
+      bubble.src = "images/bubbles.png";
+      bubble.className = "bubble";
+      bubble.style.top = (parseInt(soap.style.top) - 10) + "px";
+      bubble.style.left = "76px";
+
+      document.querySelector(".scene").appendChild(bubble);
+
+  
+      const statsOverlays = document.querySelectorAll(".statsOverlay");
+
+      if (statsIndex < statsOverlays.length) {
+        statsOverlays[statsIndex].style.opacity = "1";
+        statsIndex++;
+      }
+
+    }, 1600);
+
+    soap.addEventListener("transitionend", (e) => {
+      if (e.propertyName === "transform") {
+        soap.remove();
+      }
+    }, { once: true });
+
+  });
+});
+
+let platesAnimated = false;
+
+// plates animation 
+function animatePlates() {
+  if (platesAnimated) return;
+  platesAnimated = true;
+
+  plates.forEach((plate, i) => {
+
+    setTimeout(() => {
+
+      plate.style.transform = "translateX(-700px)";
+
+      setTimeout(() => {
+        plate.style.transform = "translateX(-680px) translateY(10px)";
+      }, 600);
+
+      setTimeout(() => {
+        plate.style.transform = "translateX(-680px)";
+      }, 1000 + i * 100);
+
+    //stats text 
+      const line = lines[i];
+
+      line.style.transform = "translateX(-700px)";
+
+      setTimeout(() => {
+        line.style.transform = "translateX(-680px) translateY(10px)";
+      }, 600);
+
+      setTimeout(() => {
+        line.style.transform = "translateX(-680px)";
+      }, 1000 + i * 100);
+
+    }, i * 200);
+
+  });
+}
+
+const broom = document.getElementById("broom");
+const cupcake = document.getElementById("cupcake");
+const pistol = document.getElementById("pistol");
+const bomb = document.getElementById("bomb");
+
+const broomText = document.getElementById("broomText");
+const cupcakeText = document.getElementById("cupcakeText");
+const pistolText = document.getElementById("pistolText");
+const bombText = document.getElementById("bombText");
+
+function shakeItem(item, text){
+
+  // text popup
+  text.classList.toggle("showText");
+
+  // restart shake animation
+  item.classList.remove("shake");
+
+  // force reflow so animation can replay
+  void item.offsetWidth;
+
+  item.classList.add("shake");
+}
+
+broom.addEventListener("click", () => {
+  shakeItem(broom, broomText);
+});
+
+cupcake.addEventListener("click", () => {
+  shakeItem(cupcake, cupcakeText);
+});
+
+pistol.addEventListener("click", () => {
+  shakeItem(pistol, pistolText);
+});
+
+bomb.addEventListener("click", () => {
+  shakeItem(bomb, bombText);
+});
+
+let soapsAnimated = false;
+
+function animateSoaps(){
+
+  if (soapsAnimated) return;
+  soapsAnimated = true;
+
+  soaps.forEach((soap, i) => {
+
+    setTimeout(() => {
+
+      soap.style.transform = "translateX(260px)";
+
+    }, i * 200);
+
+  });
+
+}
+
+// parallax 
+window.addEventListener("scroll", () => {
+  let scrollY = window.scrollY;
+
+   if (scrollY > 60) {
+    animatePlates();
+  }
+
+    // ABILITIES PARALLAX
+
+  const abilitiesStart = 900;
+  const abilitiesEnd = 1200;
+
+  let progress = (scrollY - abilitiesStart) / (abilitiesEnd - abilitiesStart);
+
+  // clamp between 0 and 1
+  progress = Math.max(0, Math.min(progress, 1));
+
+  // scale from small -> full size
+  const scaleA = 0.3 + (progress * 0.7);
+
+  // fade in
+  const opacity = progress;
+
+  // slight upward movement
+  const moveY = 80 - (progress * 80);
+
+  const abilitiesItems = [
+    document.getElementById("abilitiesTitle"),
+    document.getElementById("string"),
+    document.getElementById("broom"),
+    document.getElementById("cupcake"),
+    document.getElementById("pistol"),
+    document.getElementById("bomb")
+  ];
+
+    document.getElementById("abilitiesTitle").style.transform =
+    `translateX(-50%) translateY(${moveY}px) scale(${scaleA})`;
+
+  document.getElementById("string").style.transform =
+    `translateX(-50%) translateY(${moveY}px) scale(${scaleA})`;
+
+  document.getElementById("broom").style.transform =
+    `translateY(${moveY}px) scale(${scaleA})`;
+
+  document.getElementById("cupcake").style.transform =
+    `translateY(${moveY}px) scale(${scaleA})`;
+
+  document.getElementById("pistol").style.transform =
+    `translateY(${moveY}px) scale(${scaleA})`;
+
+  document.getElementById("bomb").style.transform =
+    `translateY(${moveY}px) scale(${scaleA})`;
+
+  // opacity
+  document.getElementById("abilitiesTitle").style.opacity = opacity;
+  document.getElementById("string").style.opacity = opacity;
+  document.getElementById("broom").style.opacity = opacity;
+  document.getElementById("cupcake").style.opacity = opacity;
+  document.getElementById("pistol").style.opacity = opacity;
+  document.getElementById("bomb").style.opacity = opacity;
+
+  let scale = 1 + scrollY * 0.001;
+  let bannerY = scrollY * -0.3;
+
+  banner.style.transform = `translateY(${bannerY}px) scale(${scale})`;
+
+  let moveUp = Math.min(scrollY * 0.5, 200);
+
+  guy.style.transform = `translate(-50%, -${moveUp}px)`;
+  stats.style.transform = `translateY(-${moveUp}px)`;
+
+  if (scrollY > 500) {
+    animateSoaps();
+  }
+
+  // FAMILY PARALLAX
+
+const familyStart = 2100;
+const familyEnd = 2500;
+
+let familyProgress =
+  (scrollY - familyStart) / (familyEnd - familyStart);
+
+//clamp
+familyProgress = Math.max(0, Math.min(familyProgress, 1));
+
+//scale
+const familyScale = 0.5 + (familyProgress * 0.5);
+
+//fade
+const familyOpacity = familyProgress;
+
+//move upward
+const familyMoveY = 100 - (familyProgress * 100);
+
+document.getElementById("cakeBanner").style.transform =
+  `translateX(-50%) translateY(${familyMoveY}px) scale(${familyScale})`;
+
+document.getElementById("familyTitle").style.transform =
+  `translateX(-50%) translateY(${familyMoveY}px) scale(${familyScale})`;
+
+document.getElementById("familyImage").style.transform =
+  `translateX(-50%) translateY(${familyMoveY}px) scale(${familyScale})`;
+
+document.getElementById("kids_text").style.transform =
+  `translateX(-50%) translateY(${familyMoveY}px) scale(${familyScale})`;
+
+document.getElementById("mom_text").style.transform =
+  `translateX(-50%) translateY(${familyMoveY}px) scale(${familyScale})`;
+
+document.querySelector(".bar").style.transform =
+  `translateX(-50%) translateY(${familyMoveY}px) scale(${familyScale})`;
+
+document.querySelector(".barM").style.transform =
+  `translateX(-50%) translateY(${familyMoveY}px) scale(${familyScale})`;
+
+//opacity
+document.getElementById("cakeBanner").style.opacity = familyOpacity;
+document.getElementById("familyTitle").style.opacity = familyOpacity;
+document.getElementById("familyImage").style.opacity = familyOpacity;
+document.getElementById("kids_text").style.opacity = familyOpacity;
+document.getElementById("mom_text").style.opacity = familyOpacity;
+document.querySelector(".bar").style.opacity = familyOpacity;
+document.querySelector(".barM").style.opacity = familyOpacity;
+
+//ABOUT ME PARALLAX
+
+const aboutStart = 2700;
+const aboutEnd = 3100;
+
+let aboutProgress =
+  (scrollY - aboutStart) / (aboutEnd - aboutStart);
+
+//clamp
+aboutProgress = Math.max(0, Math.min(aboutProgress, 1));
+
+//opacity
+const aboutOpacity = aboutProgress;
+
+//movement distance
+const rightMove = 250 - (aboutProgress * 250);
+const leftMove = -250 + (aboutProgress * 250);
+
+//scale
+const aboutScale = 0.7 + (aboutProgress * 0.3);
+
+/* FROM RIGHT */
+
+document.querySelector(".aboutMe").style.transform =
+  `translateX(calc(-50% + ${rightMove}px)) scale(${aboutScale})`;
+
+document.querySelector(".aboutMeText").style.transform =
+  `translateX(calc(-50% + ${rightMove}px)) scale(${aboutScale})`;
+
+document.querySelector(".gamesText").style.transform =
+  `translateX(calc(-50% + ${rightMove}px)) scale(${aboutScale})`;
+
+document.querySelector(".bagText").style.transform =
+  `translateX(calc(-50% + ${rightMove}px)) scale(${aboutScale})`;
+
+document.querySelector(".music").style.transform =
+  `translateX(calc(-50% + ${rightMove}px)) scale(${aboutScale})`;
+
+document.querySelector(".meImage").style.transform =
+  `translateX(calc(-50% + ${rightMove}px)) scale(${aboutScale})`;
+
+/* FROM LEFT */
+
+document.querySelector(".aboutMeCard").style.transform =
+  `translateX(calc(-50% + ${leftMove}px)) scale(${aboutScale})`;
+
+  /* CARD TEXT FROM LEFT */
+
+document.querySelectorAll(".cardText").forEach((text) => {
+
+  text.style.transform =
+    `translateX(${leftMove}px) rotate(-15deg) scale(${aboutScale})`;
+
+  text.style.opacity = aboutOpacity;
+
+});
+
+/* OPACITY */
+
+document.querySelector(".aboutMe").style.opacity = aboutOpacity;
+document.querySelector(".aboutMeText").style.opacity = aboutOpacity;
+document.querySelector(".aboutMeCard").style.opacity = aboutOpacity;
+document.querySelector(".gamesText").style.opacity = aboutOpacity;
+document.querySelector(".bagText").style.opacity = aboutOpacity;
+document.querySelector(".music").style.opacity = aboutOpacity;
+document.querySelector(".meImage").style.opacity = aboutOpacity;
+
+});
+
+</script>
+
+</body>
+</html>
