@@ -1,0 +1,21 @@
+C:/Program Files/Krita (x64)/bin/ffmpeg.exe -hide_banner -y -y -r 24 -start_number 0 -start_number_range 1 -i C:/Users/nonto/OneDrive/Documents/_School 2026/VIO 202/Theme 2/3rd Deliverable/animations/frame%04d.png -i C:/Users/nonto/OneDrive/Documents/_School 2026/VIO 202/Theme 2/3rd Deliverable/animations/KritaTempPalettegen_%06d.png -lavfi [0:v][1:v]paletteuse=dither=sierra2_4a:diff_mode=none -f gif -loop 0 -gifflags +transdiff C:/Users/nonto/OneDrive/Documents/_School 2026/VIO 202/Theme 2/3rd Deliverable/animations/mom bar.gif
+=====================================================
+Input #0, image2, from 'C:/Users/nonto/OneDrive/Documents/_School 2026/VIO 202/Theme 2/3rd Deliverable/animations/frame%04d.png':
+  Duration: 00:00:01.20, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: png, rgba64be(pc, gbr/unknown/unknown), 2200x1980 [SAR 11811:11811 DAR 10:9], 25 fps, 25 tbr, 25 tbn
+Input #1, image2, from 'C:/Users/nonto/OneDrive/Documents/_School 2026/VIO 202/Theme 2/3rd Deliverable/animations/KritaTempPalettegen_%06d.png':
+  Duration: 00:00:00.04, start: 0.000000, bitrate: N/A
+  Stream #1:0: Video: png, rgba(pc, gbr/unknown/unknown), 16x16 [SAR 1:1 DAR 1:1], 25 fps, 25 tbr, 25 tbn
+Stream mapping:
+  Stream #0:0 (png) -> paletteuse
+  Stream #1:0 (png) -> paletteuse
+  paletteuse:default -> Stream #0:0 (gif)
+Press [q] to stop, [?] for help
+Output #0, gif, to 'C:/Users/nonto/OneDrive/Documents/_School 2026/VIO 202/Theme 2/3rd Deliverable/animations/mom bar.gif':
+  Metadata:
+    encoder         : Lavf61.7.100
+  Stream #0:0: Video: gif, pal8(pc, gbr/unknown/unknown, progressive), 2200x1980 [SAR 1:1 DAR 10:9], q=2-31, 200 kb/s, 24 fps, 100 tbn
+      Metadata:
+        encoder         : Lavc61.19.101 gif
+frame=    3 fps=0.0 q=-0.0 size=       4KiB time=00:00:00.12 bitrate= 254.3kbits/s speed=0.245x    frame=   10 fps=9.8 q=-0.0 size=      22KiB time=00:00:00.41 bitrate= 423.2kbits/s speed=0.41x    frame=   18 fps= 12 q=-0.0 size=      43KiB time=00:00:00.75 bitrate= 467.2kbits/s speed=0.49x    frame=   25 fps= 12 q=-0.0 size=      62KiB time=00:00:01.04 bitrate= 487.1kbits/s speed=0.513x    [out#0/gif @ 0000016d19f6ad80] video:118KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.016546%
+frame=   30 fps= 13 q=-0.0 Lsize=     118KiB time=00:00:01.25 bitrate= 773.7kbits/s speed=0.53x    
